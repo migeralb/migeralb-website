@@ -3,12 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>York Towers KSA | Real Estate | MIGERA</title>
-  <meta name="description" content="MIGERA is an authorized broker for York Towers Saudi Arabia. Premium residential and mixed-use properties in KSA.">
+  <title>York Towers Georgia | Real Estate Investment | MIGERA</title>
+  <meta name="description" content="MIGERA is an authorized broker for York Towers — Georgia's leading luxury real estate developer. Invest in Tbilisi and Batumi premium properties.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .re-hero-dark {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c2416 100%);
+      padding: calc(var(--nav-h) + 5rem) 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .re-hero-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(201,168,92,0.15) 0%, transparent 70%);
+    }
+    .re-hero-dark .section-label,
+    .re-hero-dark .re-badge-pill { position: relative; z-index: 1; }
+    .re-hero-dark h1 { color: #fff; position: relative; z-index: 1; margin: 0.5rem 0 1.2rem; }
+    .re-hero-dark p { color: rgba(255,255,255,0.65); max-width: 620px; margin: 0 auto 2rem; position: relative; z-index: 1; font-size: 1.05rem; }
+    .re-hero-dark .btn-gold { position: relative; z-index: 1; }
+    .re-badge-pill {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      margin-bottom: 1.2rem;
+    }
+    .re-stats-bar { background: var(--gold); padding: 2.5rem 0; }
+    .re-stats-bar .container { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+    .re-stat { padding: 0 2rem; border-right: 1px solid rgba(255,255,255,0.25); }
+    .re-stat:last-child { border-right: none; }
+    .re-stat-n { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: #fff; line-height: 1; }
+    .re-stat-l { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-top: 4px; }
+    .georgia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .georgia-text h2 { margin: 0.5rem 0 1.5rem; }
+    .georgia-text p + p { margin-top: 1rem; }
+    .georgia-bullets { list-style: none; margin-top: 2rem; }
+    .georgia-bullets li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .georgia-bullets li:first-child { border-top: 1px solid var(--border); }
+    .gb-icon { color: var(--gold); font-size: 0.8rem; flex-shrink: 0; margin-top: 3px; }
+    .georgia-card { background: var(--charcoal); padding: 3rem; }
+    .georgia-card h3 { color: var(--gold); font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; margin-bottom: 1rem; }
+    .georgia-card > p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; font-size: 0.88rem; }
+    .gc-stat { margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .gc-stat:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .gc-stat-n { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--gold); }
+    .gc-stat-l { font-size: 0.68rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+    .project-card { background: var(--cream); padding: 2rem; transition: background 0.3s; }
+    .project-card:hover { background: var(--warm-white); }
+    .project-location { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .project-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .project-card p { font-size: 0.83rem; color: var(--text-light); }
+    .project-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; margin-top: 1rem; background: var(--gold-pale); color: var(--gold); }
+    .locations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); }
+    .location-card { background: var(--warm-white); padding: 3rem; transition: background 0.3s; }
+    .location-card:hover { background: var(--cream); }
+    .location-flag { font-size: 2.5rem; margin-bottom: 1rem; }
+    .location-card h3 { margin-bottom: 0.7rem; }
+    .location-card p { font-size: 0.875rem; color: var(--text-light); }
+    @media (max-width: 768px) {
+      .re-stats-bar .container { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .re-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 0.8rem; }
+      .georgia-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .locations-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -25,97 +96,185 @@
     </nav>
   </header>
 
-  <div class="page-hero-sm re-hero">
+  <!-- HERO -->
+  <div class="re-hero-dark">
     <div class="re-badge-pill">Authorized Broker</div>
-    <h1>York Towers<br><span class="gold-text">Saudi Arabia</span></h1>
-    <p>Premium residential and mixed-use properties. We connect discerning buyers and investors with one of KSA's landmark developments.</p>
-    <a href="#re-form" class="btn-gold">Request Information</a>
+    <div class="section-label">Real Estate Investment · Georgia</div>
+    <h1>York Towers<br><span style="color:var(--gold)">Tbilisi &amp; Batumi</span></h1>
+    <p>MIGERA is an authorized broker for York Towers — Georgia's premier luxury real estate developer since 2016. Premium apartments, villas, and land plots with exceptional investment returns.</p>
+    <a href="#re-form" class="btn-gold">Request Investment Info</a>
   </div>
 
-  <!-- WHY YORK TOWERS -->
+  <!-- STATS BAR -->
+  <div class="re-stats-bar">
+    <div class="container">
+      <div class="re-stat"><div class="re-stat-n">21+</div><div class="re-stat-l">Completed Projects</div></div>
+      <div class="re-stat"><div class="re-stat-n">8</div><div class="re-stat-l">Under Construction</div></div>
+      <div class="re-stat"><div class="re-stat-n">5+</div><div class="re-stat-l">Country Branches</div></div>
+      <div class="re-stat"><div class="re-stat-n">2016</div><div class="re-stat-l">Est. in Georgia</div></div>
+    </div>
+  </div>
+
+  <!-- WHY GEORGIA -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="georgia-grid">
+        <div class="georgia-text reveal">
+          <div class="section-label">The Opportunity</div>
+          <h2>Why Invest in Georgia?</h2>
+          <p>Georgia has rapidly emerged as one of the most attractive real estate markets in the world — combining strong ROI, minimal taxes, simple ownership laws for foreigners, and a booming tourism sector.</p>
+          <p>As MIGERA's authorized broker, we make investing in York Towers seamless for Lebanese and Arab investors — with full Arabic and English support throughout.</p>
+          <ul class="georgia-bullets">
+            <li><span class="gb-icon">✦</span><span>0% property tax for individuals — one of the world's most investor-friendly regimes</span></li>
+            <li><span class="gb-icon">✦</span><span>Strong rental yields driven by booming tourism in Tbilisi and Batumi</span></li>
+            <li><span class="gb-icon">✦</span><span>Simple, transparent property ownership laws open to all foreign nationals</span></li>
+            <li><span class="gb-icon">✦</span><span>Rapidly appreciating property values in emerging prime districts</span></li>
+            <li><span class="gb-icon">✦</span><span>Flexible payment plans and mortgage packages available through York Towers</span></li>
+            <li><span class="gb-icon">✦</span><span>Full Arabic-speaking support via MIGERA from enquiry to handover</span></li>
+          </ul>
+        </div>
+        <div class="georgia-card reveal">
+          <h3>York Towers at a Glance</h3>
+          <p>Founded in 2016, York Towers is a global luxury real estate developer headquartered in Tbilisi — specializing in elegant, sustainable residences across Georgia's most desirable locations.</p>
+          <div class="gc-stat"><div class="gc-stat-n">Tbilisi &amp; Batumi</div><div class="gc-stat-l">Primary Markets</div></div>
+          <div class="gc-stat"><div class="gc-stat-n">Apartments · Villas · Land Plots</div><div class="gc-stat-l">Property Types</div></div>
+          <div class="gc-stat"><div class="gc-stat-n">Elegant &amp; Sustainable Design</div><div class="gc-stat-l">Construction Philosophy</div></div>
+          <div class="gc-stat"><div class="gc-stat-n">Arabic · English · Russian</div><div class="gc-stat-l">Languages Supported</div></div>
+          <div class="gc-stat"><div class="gc-stat-n"><a href="https://yorktowers.com" target="_blank" style="color:var(--gold)">yorktowers.com</a></div><div class="gc-stat-l">Official Developer Website</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-label">The Development</div>
-        <h2>Why York Towers?</h2>
+        <div class="section-label">The Portfolio</div>
+        <h2>Available York Towers Projects</h2>
+        <p>A curated selection of premium developments — from Tbilisi riverfront residences to Black Sea coastal apartments and lakeside resorts.</p>
       </div>
-      <div class="re-features-grid">
-        <div class="re-feat reveal">
-          <div class="re-feat-icon">🏙</div>
-          <h3>Prime Location in KSA</h3>
-          <p>Strategically positioned in one of Saudi Arabia's most sought-after zones, offering exceptional connectivity and lifestyle amenities.</p>
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-location">Tbilisi · Riverfront</div>
+          <h3>Tbilisi Waterside</h3>
+          <p>Premium riverside residential complex combining modern architecture with waterfront living in central Tbilisi.</p>
+          <span class="project-tag">Available</span>
         </div>
-        <div class="re-feat reveal">
-          <div class="re-feat-icon">📈</div>
-          <h3>Strong Investment Returns</h3>
-          <p>With KSA's booming real estate market driven by Vision 2030, York Towers offers compelling ROI for local and international investors.</p>
+        <div class="project-card reveal">
+          <div class="project-location">Tbilisi</div>
+          <h3>Greenscape Residence</h3>
+          <p>Eco-conscious luxury development blending contemporary design with lush green surroundings.</p>
+          <span class="project-tag">Available</span>
         </div>
-        <div class="re-feat reveal">
-          <div class="re-feat-icon">🏠</div>
-          <h3>Diverse Unit Mix</h3>
-          <p>From premium apartments to mixed-use commercial units — a range of investment sizes and use cases to suit your portfolio.</p>
+        <div class="project-card reveal">
+          <div class="project-location">Tbilisi · Isani</div>
+          <h3>Isani Park</h3>
+          <p>Modern apartments in a vibrant Tbilisi neighborhood with excellent connectivity and strong ROI potential.</p>
+          <span class="project-tag">Available</span>
         </div>
-        <div class="re-feat reveal">
-          <div class="re-feat-icon">🤝</div>
-          <h3>MIGERA as Your Broker</h3>
-          <p>We guide you through every step — from initial inquiry and site visits to purchase documentation and handover. No complexity, no surprises.</p>
+        <div class="project-card reveal">
+          <div class="project-location">Tbilisi · Kura River</div>
+          <h3>Riverline</h3>
+          <p>Luxury residences along the Kura River with panoramic city and river views — a premier Tbilisi address.</p>
+          <span class="project-tag">Available</span>
         </div>
-        <div class="re-feat reveal">
-          <div class="re-feat-icon">🇸🇦</div>
-          <h3>Vision 2030 Aligned</h3>
-          <p>York Towers is part of Saudi Arabia's transformational real estate landscape, backed by strong government infrastructure investment.</p>
+        <div class="project-card reveal">
+          <div class="project-location">Batumi · Black Sea</div>
+          <h3>Bianca Batumi</h3>
+          <p>Seaside luxury apartments with high rental yield potential — ideal for short-term investment income on the coast.</p>
+          <span class="project-tag">Available</span>
         </div>
-        <div class="re-feat reveal">
-          <div class="re-feat-icon">💬</div>
-          <h3>Bilingual Support</h3>
-          <p>Our team serves clients in Arabic and English, across Lebanon and Saudi Arabia — with local expertise in both markets.</p>
+        <div class="project-card reveal">
+          <div class="project-location">Saguramo · Tbilisi Region</div>
+          <h3>Serene Villa Residence</h3>
+          <p>Private luxury villas in nature just 30 minutes from Tbilisi — perfect for permanent living or premium vacation rental.</p>
+          <span class="project-tag">Available</span>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-location">Bazaleti Lake</div>
+          <h3>Bazaleti Resort</h3>
+          <p>Premium resort development at scenic Bazaleti Lake — a unique blend of eco-tourism and investment opportunity.</p>
+          <span class="project-tag">Available</span>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-location">Tbilisi · Lisi Lake</div>
+          <h3>Lisi Perspective</h3>
+          <p>Eco-friendly residences near the beloved Lisi Lake — one of Tbilisi's most desirable and green districts.</p>
+          <span class="project-tag">Available</span>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-location">Tbilisi</div>
+          <h3>Vista Garden</h3>
+          <p>Modern elegance meets nature in this thoughtfully designed residential community in a prime Tbilisi location.</p>
+          <span class="project-tag">Available</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+        <a href="https://yorktowers.com/available-projects/" target="_blank" class="btn-outline-dark">View All Projects on yorktowers.com ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Where We Invest</div>
+        <h2>Prime Locations in Georgia</h2>
+      </div>
+      <div class="locations-grid">
+        <div class="location-card reveal">
+          <div class="location-flag">🏙</div>
+          <h3>Tbilisi — The Capital</h3>
+          <p>Georgia's vibrant capital and economic hub. A rapidly modernizing city with strong property appreciation, a thriving expat community, and significant infrastructure investment under Georgia's growth agenda.</p>
+        </div>
+        <div class="location-card reveal">
+          <div class="location-flag">🌊</div>
+          <h3>Batumi — The Black Sea Riviera</h3>
+          <p>Georgia's coastal gem on the Black Sea. Known for its modern skyline, booming tourism, and high short-term rental demand — Batumi offers some of the region's strongest rental yields.</p>
+        </div>
+        <div class="location-card reveal">
+          <div class="location-flag">🌿</div>
+          <h3>Saguramo — Nature &amp; Villas</h3>
+          <p>A peaceful escape 30 minutes from Tbilisi. York Towers' Serene Villa Residence offers private luxury surrounded by nature — ideal for residential buyers or high-end vacation rental.</p>
+        </div>
+        <div class="location-card reveal">
+          <div class="location-flag">🏔</div>
+          <h3>Bazaleti — Lakeside Resort</h3>
+          <p>The pristine Bazaleti Lake region north of Tbilisi. A growing eco-tourism destination where York Towers offers a unique resort investment with exceptional natural surroundings.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section class="section bg-cream">
+  <section class="section">
     <div class="container">
       <div class="section-header reveal">
         <div class="section-label">How It Works</div>
-        <h2>Your Journey with MIGERA</h2>
+        <h2>Your Investment Journey with MIGERA</h2>
+        <p>We handle everything from first enquiry to handover — fully in Arabic and English.</p>
       </div>
       <div class="process-steps">
-        <div class="step reveal">
-          <div class="step-n">01</div>
-          <h3>Initial Enquiry</h3>
-          <p>Fill in our enquiry form or call us directly. We'll understand your budget, purpose, and timeline.</p>
-        </div>
+        <div class="step reveal"><div class="step-n">01</div><h3>Initial Enquiry</h3><p>Contact us or fill the form. We understand your budget, goals, and preferred location in Georgia.</p></div>
         <div class="step-arrow">→</div>
-        <div class="step reveal">
-          <div class="step-n">02</div>
-          <h3>Tailored Proposal</h3>
-          <p>We present the units that match your criteria — with full pricing, layouts, and payment plan options.</p>
-        </div>
+        <div class="step reveal"><div class="step-n">02</div><h3>Tailored Selection</h3><p>We present matching York Towers projects with full pricing, floor plans, and flexible payment options.</p></div>
         <div class="step-arrow">→</div>
-        <div class="step reveal">
-          <div class="step-n">03</div>
-          <h3>Site Visit / Virtual Tour</h3>
-          <p>We arrange in-person or virtual tours of the development and specific units.</p>
-        </div>
+        <div class="step reveal"><div class="step-n">03</div><h3>Visit or Virtual Tour</h3><p>We arrange virtual tours or accompany you to Georgia for in-person project visits with our team.</p></div>
         <div class="step-arrow">→</div>
-        <div class="step reveal">
-          <div class="step-n">04</div>
-          <h3>Purchase &amp; Handover</h3>
-          <p>We manage the full documentation process and remain your point of contact through handover.</p>
-        </div>
+        <div class="step reveal"><div class="step-n">04</div><h3>Purchase &amp; Handover</h3><p>Full legal and documentation support in Arabic and English — we stay with you through handover.</p></div>
       </div>
     </div>
   </section>
 
   <!-- LEAD FORM -->
-  <section class="section" id="re-form">
+  <section class="section bg-cream" id="re-form">
     <div class="container">
       <div class="section-header reveal">
         <div class="section-label">Get Started</div>
-        <h2>Request York Towers Information</h2>
-        <p>Fill in your details and our real estate team will reach out within 24 hours.</p>
+        <h2>Request York Towers Investment Info</h2>
+        <p>Fill in your details and our real estate team will reach out within 24 hours — in Arabic or English.</p>
       </div>
       <form class="lead-form centered reveal" id="form-realestate" data-sheet="RealEstate">
         <div class="form-row">
@@ -123,32 +282,53 @@
           <div class="fg"><label>Email *</label><input type="email" name="email" required placeholder="you@email.com"></div>
         </div>
         <div class="form-row">
-          <div class="fg"><label>Phone *</label><input type="tel" name="phone" required placeholder="+961 / +966"></div>
-          <div class="fg"><label>Nationality</label><input type="text" name="nationality" placeholder="Lebanese / Saudi / Other"></div>
+          <div class="fg"><label>Phone *</label><input type="tel" name="phone" required placeholder="+961 / +966 / +44..."></div>
+          <div class="fg"><label>Nationality / Country</label><input type="text" name="nationality" placeholder="Lebanese / Saudi / Other"></div>
         </div>
         <div class="form-row">
           <div class="fg"><label>Budget Range (USD)</label>
             <select name="budget">
               <option value="">Select...</option>
-              <option>Under $200K</option>
+              <option>Under $100K</option>
+              <option>$100K – $200K</option>
               <option>$200K – $500K</option>
               <option>$500K – $1M</option>
               <option>$1M+</option>
             </select>
           </div>
-          <div class="fg"><label>Purpose</label>
+          <div class="fg"><label>Preferred Location</label>
             <select name="purpose">
               <option value="">Select...</option>
-              <option>Own Use</option>
-              <option>Investment</option>
-              <option>Both</option>
+              <option>Tbilisi</option>
+              <option>Batumi</option>
+              <option>Saguramo / Villas</option>
+              <option>Bazaleti / Resort</option>
+              <option>No Preference — Show Me All</option>
             </select>
           </div>
         </div>
-        <div class="fg"><label>Notes / Questions</label><textarea name="message" rows="3" placeholder="Any specific requirements or questions about York Towers?"></textarea></div>
-        <button type="submit" class="btn-gold full">Request Real Estate Information</button>
-        <div class="form-success" id="success-realestate">✓ Request received! Our real estate team will contact you shortly.</div>
+        <div class="fg"><label>Investment Purpose</label>
+          <select name="investment_purpose">
+            <option value="">Select...</option>
+            <option>Own Use / Residence</option>
+            <option>Rental Income</option>
+            <option>Capital Appreciation</option>
+            <option>Mixed Investment</option>
+          </select>
+        </div>
+        <div class="fg"><label>Notes / Questions</label><textarea name="message" rows="3" placeholder="Any specific requirements, preferred projects, or questions about investing in Georgia?"></textarea></div>
+        <button type="submit" class="btn-gold full">Request Investment Information</button>
+        <div class="form-success" id="success-realestate">✓ Request received! Our real estate team will contact you within 24 hours.</div>
       </form>
+      <div class="contact-info-strip reveal">
+        <div class="ci-item"><span class="ci-label">MIGERA Lebanon</span><span class="ci-val">(+961) 76 460846</span></div>
+        <div class="ci-sep">|</div>
+        <div class="ci-item"><span class="ci-label">MIGERA Saudi Arabia</span><span class="ci-val">+966 569 522 777</span></div>
+        <div class="ci-sep">|</div>
+        <div class="ci-item"><span class="ci-label">Email</span><span class="ci-val"><a href="mailto:info@migeralb.com">info@migeralb.com</a></span></div>
+        <div class="ci-sep">|</div>
+        <div class="ci-item"><span class="ci-label">Developer</span><span class="ci-val"><a href="https://yorktowers.com" target="_blank">yorktowers.com</a></span></div>
+      </div>
     </div>
   </section>
 
@@ -163,10 +343,10 @@
         <div class="footer-nav">
           <div class="fn-col"><div class="fn-head">Company</div><a href="index.html#about">About</a><a href="services.html">Consulting</a><a href="realestate.html">Real Estate</a></div>
           <div class="fn-col"><div class="fn-head">Shop</div><a href="meetup.html">Meetup Store</a><a href="shop.html">MIGERA Shop</a></div>
-          <div class="fn-col"><div class="fn-head">Connect</div><a href="index.html#contact">Contact</a><a href="https://instagram.com/migeralb" target="_blank">Instagram</a></div>
+          <div class="fn-col"><div class="fn-head">Connect</div><a href="index.html#contact">Contact</a><a href="https://instagram.com/migeralb" target="_blank">Instagram</a><a href="https://yorktowers.com" target="_blank">yorktowers.com</a></div>
         </div>
       </div>
-      <div class="footer-bottom"><p>© 2025 MIGERA. All Rights Reserved. | Authorized Broker: <a href="https://yorktowers.sa" target="_blank">yorktowers.sa</a></p></div>
+      <div class="footer-bottom"><p>© 2025 MIGERA. All Rights Reserved. | Authorized Broker for <a href="https://yorktowers.com" target="_blank">York Towers Georgia</a></p></div>
     </div>
   </footer>
 
