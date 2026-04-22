@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIGERA Shop | Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/migeralogo.png" alt="MIGERA" id="nav-logo-img"></a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <nav class="nav-menu" id="nav-menu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Consulting</a>
+      <a href="realestate.html" class="nav-link">Real Estate</a>
+      <a href="meetup.html" class="nav-link">Meetup Shop</a>
+      <a href="shop.html" class="nav-link active">Shop</a>
+      <a href="index.html#contact" class="nav-link btn-nav">Get In Touch</a>
+    </nav>
+  </header>
+
+  <section class="coming-soon-page">
+    <div class="cs-content">
+      <div class="section-label">MIGERA Shop</div>
+      <h1>Something<br><em>Beautiful</em><br>Is Coming.</h1>
+      <p>We're curating something special for the MIGERA shop. Be the first to know when we launch.</p>
+
+      <form class="notify-form" id="notify-form" data-sheet="ShopNotify">
+        <input type="email" name="email" placeholder="Enter your email address" required>
+        <button type="submit" class="btn-gold">Notify Me</button>
+        <div class="form-success" id="success-notify" style="display:none">✓ You're on the list! We'll notify you at launch.</div>
+      </form>
+
+      <div class="cs-links">
+        <a href="meetup.html" class="btn-outline-dark">Visit Meetup Shop</a>
+        <a href="index.html" class="btn-outline-dark">Back to Home</a>
+      </div>
+    </div>
+    <div class="cs-decoration">
+      <div class="cs-ring r1"></div>
+      <div class="cs-ring r2"></div>
+      <div class="cs-ring r3"></div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('notify-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[name="email"]').value;
+      const btn = this.querySelector('button');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const SCRIPT_URL = window.GOOGLE_SCRIPT_URL || '';
+        if (SCRIPT_URL) {
+          await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sheet: 'ShopNotify', email, timestamp: new Date().toISOString() })
+          });
+        }
+      } catch(err) {}
+      document.getElementById('success-notify').style.display = 'block';
+      btn.style.display = 'none';
+      this.querySelector('input').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
