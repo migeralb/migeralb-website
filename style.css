@@ -166,6 +166,9 @@ strong { font-weight: 500; color: var(--charcoal); }
   object-fit: contain;
   object-position: left center;
   flex-shrink: 0;
+  /* Clip white border from image edges */
+  padding: 2px;
+  box-sizing: border-box;
 }
 
 .nav-menu { display: flex; align-items: center; gap: 2rem; }
@@ -258,16 +261,7 @@ strong { font-weight: 500; color: var(--charcoal); }
   max-width: 780px;
   padding: 3rem 2rem 4rem;
 }
-.eyebrow {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.3s forwards;
-}
+.eyebrow { display: none; }
 .hero-content h1 {
   color: var(--warm-white);
   opacity: 0;
