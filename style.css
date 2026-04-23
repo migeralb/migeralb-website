@@ -695,10 +695,12 @@ strong { font-weight: 500; color: var(--charcoal); }
     padding: 0 1rem; 
     flex-wrap: nowrap;
     height: var(--nav-h);
+    align-items: flex-end;
+    padding-bottom: 8px;
   }
   .nav-logo { max-width: 70%; flex-shrink: 1; }
   .nav-logo img { height: 22px; width: auto; max-width: 100%; }
-  .hamburger { flex-shrink: 0; margin-left: auto; }
+  .hamburger { flex-shrink: 0; margin-left: auto; margin-bottom: 4px; }
   .hamburger { display: flex; }
   .nav-menu {
     position: fixed;
