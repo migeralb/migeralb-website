@@ -155,13 +155,16 @@ strong { font-weight: 500; color: var(--charcoal); }
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
+  overflow: hidden;
+  max-width: 55%;
 }
 .nav-logo img {
   height: 40px;
   width: auto;
-  max-width: 160px;
+  max-width: 100%;
   display: block;
   object-fit: contain;
+  object-position: left center;
   flex-shrink: 0;
 }
 
@@ -695,9 +698,9 @@ strong { font-weight: 500; color: var(--charcoal); }
 }
 
 @media (max-width: 768px) {
-  :root { --nav-h: 64px; }
+  :root { --nav-h: 60px; }
   .navbar { padding: 0 1.2rem; }
-  .nav-logo img { height: 32px; width: auto; max-width: 200px; }
+  .nav-logo img { height: 28px; width: auto; max-width: 190px; }
   .hamburger { display: flex; }
   .nav-menu {
     position: fixed;
