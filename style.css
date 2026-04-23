@@ -140,27 +140,26 @@ strong { font-weight: 500; color: var(--charcoal); }
   align-items: center;
   justify-content: space-between;
   padding: 0 3rem;
-  background: rgba(250,248,244,0.97);
+  background: #000000;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(28,28,28,0.08);
+  border-bottom: 1px solid rgba(242,152,13,0.15);
   z-index: 1000;
   transition: box-shadow 0.3s;
 }
-.navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+.navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
 
-/* LOGO FIX — works on all devices */
+/* LOGO — works on ALL devices and ALL pages */
 .nav-logo {
   display: flex;
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
-  max-width: 200px;
 }
 .nav-logo img {
-  height: 44px;
+  height: 40px;
   width: auto;
-  max-width: 180px;
+  max-width: 160px;
   display: block;
   object-fit: contain;
   flex-shrink: 0;
@@ -172,7 +171,7 @@ strong { font-weight: 500; color: var(--charcoal); }
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text);
+  color: rgba(255,255,255,0.75);
   position: relative;
   transition: color 0.3s;
   white-space: nowrap;
@@ -187,7 +186,7 @@ strong { font-weight: 500; color: var(--charcoal); }
   transition: transform 0.3s;
   transform-origin: left;
 }
-.nav-link:hover, .nav-link.active { color: var(--charcoal); }
+.nav-link:hover, .nav-link.active { color: #ffffff; }
 .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
 
 .btn-nav {
@@ -216,7 +215,7 @@ strong { font-weight: 500; color: var(--charcoal); }
   display: block;
   width: 22px;
   height: 1.5px;
-  background: var(--charcoal);
+  background: rgba(255,255,255,0.85);
   transition: all 0.3s;
 }
 .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -705,18 +704,18 @@ strong { font-weight: 500; color: var(--charcoal); }
   .nav-menu {
     position: fixed;
     top: var(--nav-h); left: 0; right: 0;
-    background: rgba(250,248,244,0.99);
+    background: rgba(0,0,0,0.98);
     flex-direction: column;
     align-items: center;
     padding: 2rem 1.5rem;
     gap: 1.5rem;
     transform: translateY(-110%);
     transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-    border-bottom: 1px solid rgba(201,168,92,0.15);
+    border-bottom: 1px solid rgba(242,152,13,0.15);
     z-index: 999;
   }
   .nav-menu.open { transform: translateY(0); }
-  .nav-link { color: var(--text); font-size: 0.85rem; }
+  .nav-link { color: rgba(255,255,255,0.75); font-size: 0.85rem; }
   .btn-nav { width: 100%; text-align: center; }
 
   .section { padding: 4.5rem 0; }
