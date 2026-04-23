@@ -611,14 +611,12 @@ strong { font-weight: 500; color: var(--charcoal); }
 }
 /* FOOTER LOGO FIX */
 .footer-brand img {
-  height: 42px;
+  height: 48px;
   width: auto;
-  max-width: 160px;
+  max-width: 200px;
   display: block;
   margin-bottom: 0.8rem;
   object-fit: contain;
-  /* Force white on dark background */
-  filter: brightness(0) invert(1);
 }
 .footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
 .footer-email { margin-top: 0.5rem; }
@@ -699,7 +697,7 @@ strong { font-weight: 500; color: var(--charcoal); }
 @media (max-width: 768px) {
   :root { --nav-h: 64px; }
   .navbar { padding: 0 1.2rem; }
-  .nav-logo img { height: 36px; max-width: 140px; }
+  .nav-logo img { height: 32px; width: auto; max-width: 200px; }
   .hamburger { display: flex; }
   .nav-menu {
     position: fixed;
