@@ -3,135 +3,505 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meetup Shop | T-Shirts & Accessories | MIGERA</title>
-  <meta name="description" content="Shop the Meetup lifestyle collection — exclusive t-shirts, accessories, and limited drops by MIGERA.">
+  <title>Meetup Coffee Shop | Franchise | MIGERA</title>
+  <meta name="description" content="Meetup Coffee Shop — Lebanon's beloved coffee brand with locations in Dekwaneh and Kaslik. Now offering franchise opportunities across the region.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="meetup.css">
-</head>
-<body class="meetup-page">
+  <style>
+    /* Meetup brand — uses MIGERA identity but with coffee warmth */
+    .meetup-hero {
+      min-height: 90vh;
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-h);
+      position: relative;
+      overflow: hidden;
+    }
+    .meetup-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(201,168,92,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,92,0.06) 0%, transparent 50%);
+    }
+    .meetup-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      padding: 5rem 0;
+    }
+    .meetup-hero-text {}
+    .meetup-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 7px 16px;
+      margin-bottom: 2rem;
+    }
+    .meetup-tag::before { content: '●'; color: var(--gold); font-size: 0.5rem; }
+    .meetup-hero-text h1 {
+      color: var(--warm-white);
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+    }
+    .meetup-hero-text h1 em { color: var(--gold); font-style: italic; }
+    .meetup-hero-text p { color: rgba(255,255,255,0.55); font-size: 1rem; margin-bottom: 2.5rem; max-width: 420px; line-height: 1.8; }
+    .meetup-hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-white {
+      display: inline-block;
+      padding: 13px 30px;
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .btn-white:hover { background: var(--gold); color: var(--warm-white); }
 
-  <header class="navbar navbar-meetup" id="navbar">
-    <a href="index.html" class="nav-logo"><img src="images/migeralogowhite.png" alt="MIGERA" id="nav-logo-img"></a>
+    .meetup-hero-visual {
+      position: relative;
+    }
+    .meetup-hero-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,92,0.15);
+      padding: 3rem;
+    }
+    .meetup-stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(201,168,92,0.1);
+      margin-bottom: 2rem;
+    }
+    .meetup-stat {
+      background: rgba(255,255,255,0.03);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .meetup-stat-n {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .meetup-stat-l {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+    }
+    .meetup-locations-list { list-style: none; }
+    .meetup-locations-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .meetup-locations-list li:last-child { border-bottom: none; }
+    .meetup-locations-list .loc-dot { color: var(--gold); font-size: 0.5rem; }
+
+    /* Brand section */
+    .brand-section { background: var(--warm-white); padding: 7rem 0; }
+    .brand-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .brand-text h2 { margin: 0.5rem 0 1.5rem; }
+    .brand-text p + p { margin-top: 1rem; }
+    .brand-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin-top: 2.5rem;
+    }
+    .bv-item {
+      background: var(--cream);
+      padding: 1.5rem;
+    }
+    .bv-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .bv-item h4 { font-size: 1rem; margin-bottom: 0.3rem; }
+    .bv-item p { font-size: 0.8rem; color: var(--text-light); }
+
+    /* Franchise section */
+    .franchise-section { background: var(--cream-2); padding: 7rem 0; }
+    .franchise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 3rem;
+    }
+    .fr-card {
+      background: var(--warm-white);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+      position: relative;
+    }
+    .fr-card:hover { background: var(--cream); }
+    .fr-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+    .fr-card:hover::before { transform: scaleX(1); }
+    .fr-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(201,168,92,0.12);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .fr-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+    .fr-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; }
+
+    /* Why franchise */
+    .why-franchise { background: var(--charcoal); padding: 7rem 0; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .why-text h2 { color: var(--warm-white); margin: 0.5rem 0 1.5rem; }
+    .why-text p { color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
+    .why-list { list-style: none; margin-top: 1.5rem; }
+    .why-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .why-list .wl-icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; font-size: 0.7rem; }
+    .why-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(201,168,92,0.1);
+    }
+    .wn-box {
+      background: rgba(255,255,255,0.03);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .wn-n { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1; }
+    .wn-l { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 6px; }
+
+    /* Shop teaser */
+    .shop-teaser { background: var(--cream); padding: 5rem 0; }
+    .shop-teaser-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding: 3rem;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+    }
+    .shop-teaser h3 { font-size: 1.8rem; font-weight: 300; }
+    .shop-teaser p { color: var(--text-light); font-size: 0.9rem; margin-top: 0.4rem; }
+
+    @media (max-width: 768px) {
+      .meetup-hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .meetup-hero { min-height: auto; }
+      .brand-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .franchise-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .brand-values { grid-template-columns: 1fr; }
+      .meetup-stat-row { grid-template-columns: 1fr 1fr; }
+      .shop-teaser-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/migeralogowhite.png" alt="MIGERA"></a>
     <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     <nav class="nav-menu" id="nav-menu">
       <a href="index.html" class="nav-link">Home</a>
       <a href="services.html" class="nav-link">Consulting</a>
       <a href="realestate.html" class="nav-link">Real Estate</a>
-      <a href="meetup.html" class="nav-link active">Meetup Shop</a>
+      <a href="meetup.html" class="nav-link active">Meetup</a>
       <a href="shop.html" class="nav-link">Shop</a>
       <a href="index.html#contact" class="nav-link btn-nav">Get In Touch</a>
     </nav>
   </header>
 
-  <!-- MEETUP HERO -->
-  <div class="meetup-hero">
-    <div class="meetup-hero-bg"></div>
-    <div class="meetup-hero-content">
-      <div class="meetup-brand-badge">By MIGERA</div>
-      <h1 class="meetup-title">MEETUP</h1>
-      <p class="meetup-sub">Wear the Community. <em>Live the Vibe.</em></p>
-      <a href="#shop-grid" class="btn-meetup">Shop Now</a>
-    </div>
-    <div class="meetup-scroll-hint">↓</div>
-  </div>
-
-  <!-- FILTER BAR -->
-  <div class="shop-filter-bar" id="shop-grid">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="tshirts">T-Shirts</button>
-    <button class="filter-btn" data-filter="accessories">Accessories</button>
-    <button class="filter-btn" data-filter="limited">Limited Drops</button>
-  </div>
-
-  <!-- PRODUCT GRID -->
-  <section class="shop-section">
+  <!-- HERO -->
+  <section class="meetup-hero">
     <div class="container">
-      <div class="product-grid" id="product-grid">
-
-        <!-- Products injected by JS -->
-
+      <div class="meetup-hero-grid">
+        <div class="meetup-hero-text reveal">
+          <div class="meetup-tag">Lebanon · Coffee · Community</div>
+          <h1>Where<br>Everyone<br><em>Meets Up.</em></h1>
+          <p>Meetup Coffee Shop is Lebanon's community-first coffee brand — known for its warm atmosphere, creative drinks, and the feeling that you're always in good hands.</p>
+          <div class="meetup-hero-btns">
+            <a href="#franchise-form" class="btn-gold">Franchise Enquiry</a>
+            <a href="https://www.instagram.com/meetupcoffeeshop" target="_blank" class="btn-outline-light">@meetupcoffeeshop</a>
+          </div>
+        </div>
+        <div class="meetup-hero-visual reveal">
+          <div class="meetup-hero-card">
+            <div class="meetup-stat-row">
+              <div class="meetup-stat">
+                <div class="meetup-stat-n">2</div>
+                <div class="meetup-stat-l">Locations</div>
+              </div>
+              <div class="meetup-stat">
+                <div class="meetup-stat-n">2,374</div>
+                <div class="meetup-stat-l">Followers</div>
+              </div>
+              <div class="meetup-stat">
+                <div class="meetup-stat-n">303</div>
+                <div class="meetup-stat-l">Posts</div>
+              </div>
+              <div class="meetup-stat">
+                <div class="meetup-stat-n">Now</div>
+                <div class="meetup-stat-l">Franchising</div>
+              </div>
+            </div>
+            <ul class="meetup-locations-list">
+              <li><span class="loc-dot">●</span> <span><strong style="color:rgba(255,255,255,0.8)">Dekwaneh</strong> — 76 506 955</span></li>
+              <li><span class="loc-dot">●</span> <span><strong style="color:rgba(255,255,255,0.8)">Kaslik</strong> — 70 576 616</span></li>
+              <li><span class="loc-dot">●</span> <span>Delivery via <strong style="color:rgba(255,255,255,0.8)">@toters_delivery</strong></span></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CART SIDEBAR -->
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <div class="cart-sidebar" id="cart-sidebar">
-    <div class="cart-header">
-      <h3>Your Cart</h3>
-      <button class="cart-close" id="cart-close">✕</button>
-    </div>
-    <div class="cart-items" id="cart-items">
-      <div class="cart-empty">Your cart is empty</div>
-    </div>
-    <div class="cart-footer" id="cart-footer" style="display:none">
-      <div class="cart-total">
-        <span>Total</span>
-        <span id="cart-total-val">$0</span>
+  <!-- BRAND STORY -->
+  <section class="brand-section">
+    <div class="container">
+      <div class="brand-grid">
+        <div class="brand-text reveal">
+          <div class="section-label">The Brand</div>
+          <h2>More Than Coffee.<br>It's a Feeling.</h2>
+          <p>Meetup Coffee Shop was built on a simple idea: every cup should feel like catching up with an old friend. From our signature blended milkshakes to our carefully crafted espresso-based drinks, every item on our menu is designed to create a moment.</p>
+          <p>With two thriving locations in Dekwaneh and Kaslik, a loyal community, and a team that truly cares — Meetup is ready to grow beyond Lebanon.</p>
+          <div class="brand-values">
+            <div class="bv-item">
+              <div class="bv-icon">☕</div>
+              <h4>Craft Coffee</h4>
+              <p>Premium beans, expert preparation, consistent quality across every cup.</p>
+            </div>
+            <div class="bv-item">
+              <div class="bv-icon">🤝</div>
+              <h4>Community First</h4>
+              <p>A space where people gather, connect, and feel at home.</p>
+            </div>
+            <div class="bv-item">
+              <div class="bv-icon">🎨</div>
+              <h4>Creative Menu</h4>
+              <p>From Ube-licious to blended milkshakes — always something exciting.</p>
+            </div>
+            <div class="bv-item">
+              <div class="bv-icon">📱</div>
+              <h4>Strong Brand</h4>
+              <p>Active social media presence and loyal customer base built over years.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="background:var(--cream-2);padding:3rem;border:1px solid var(--border)">
+          <div class="section-label">You're in Good Hands</div>
+          <p style="font-family:var(--font-display);font-size:2.2rem;font-weight:300;color:var(--charcoal);line-height:1.2;margin-bottom:1.5rem">"You're in<br>good hands."</p>
+          <p style="color:var(--text-light);font-size:0.9rem;margin-bottom:2rem">This isn't just a tagline — it's the Meetup promise. Every franchisee receives the full support, training, and systems to deliver the same warmth that made our Lebanese locations a community staple.</p>
+          <div style="border-top:1px solid var(--border);padding-top:1.5rem;margin-top:1.5rem">
+            <div class="section-label" style="margin-bottom:0.3rem">Managed by</div>
+            <p style="font-weight:500;color:var(--charcoal)">MIGERA Consulting &amp; Management</p>
+            <p style="font-size:0.82rem;color:var(--text-light);margin-top:0.2rem">Caring Partners · migeralb.com</p>
+          </div>
+        </div>
       </div>
-      <button class="btn-gold full" id="checkout-btn">Proceed to Checkout</button>
     </div>
-  </div>
+  </section>
 
-  <!-- CART BUTTON -->
-  <button class="cart-fab" id="cart-fab">
-    🛒 <span class="cart-count" id="cart-count">0</span>
-  </button>
-
-  <!-- PRODUCT MODAL -->
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="product-modal" id="product-modal">
-      <button class="modal-close" id="modal-close">✕</button>
-      <div class="modal-content" id="modal-content"></div>
+  <!-- FRANCHISE OFFER -->
+  <section class="franchise-section" id="franchise">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Franchise Opportunity</div>
+        <h2>Own a Meetup Coffee Shop</h2>
+        <p>We are actively seeking franchise partners across Lebanon, Saudi Arabia, and the broader GCC region. Join a proven brand with a passionate community behind it.</p>
+      </div>
+      <div class="franchise-grid">
+        <div class="fr-card reveal">
+          <div class="fr-num">01</div>
+          <h3>Proven Concept</h3>
+          <p>Two successful locations in Lebanon with a loyal customer base, strong social media following, and years of operational experience behind us.</p>
+        </div>
+        <div class="fr-card reveal">
+          <div class="fr-num">02</div>
+          <h3>Full Training &amp; Support</h3>
+          <p>MIGERA provides complete onboarding — barista training, operations manual, brand guidelines, supplier introductions, and ongoing support.</p>
+        </div>
+        <div class="fr-card reveal">
+          <div class="fr-num">03</div>
+          <h3>Turnkey System</h3>
+          <p>From location selection and interior design to menu setup and staff training — we provide a complete system ready to launch.</p>
+        </div>
+        <div class="fr-card reveal">
+          <div class="fr-num">04</div>
+          <h3>Brand &amp; Marketing</h3>
+          <p>Use the full Meetup brand identity, social media playbook, and community-building strategy that drives real loyalty and foot traffic.</p>
+        </div>
+        <div class="fr-card reveal">
+          <div class="fr-num">05</div>
+          <h3>Regional Expansion</h3>
+          <p>We are targeting growth across Lebanon, Saudi Arabia, UAE, and Kuwait — ideal for investors looking for an F&B opportunity with regional potential.</p>
+        </div>
+        <div class="fr-card reveal">
+          <div class="fr-num">06</div>
+          <h3>MIGERA-Backed</h3>
+          <p>Franchisees benefit from MIGERA's full consulting infrastructure — operational assessments, turnaround support, and ongoing management guidance.</p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- CHECKOUT MODAL -->
-  <div class="modal-overlay" id="checkout-overlay" style="display:none">
-    <div class="product-modal checkout-modal">
-      <button class="modal-close" id="checkout-close">✕</button>
-      <h2>Complete Your Order</h2>
-      <p style="color:#888;margin-bottom:1.5rem;font-size:.9rem">We'll process your order and reach out to confirm delivery details.</p>
-      <form id="checkout-form" data-sheet="MeetupOrders">
+  <!-- WHY MEETUP -->
+  <section class="why-franchise">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-text reveal">
+          <div class="section-label" style="color:rgba(201,168,92,0.8)">Why Meetup</div>
+          <h2>A Brand Worth Investing In</h2>
+          <p>Meetup isn't just a coffee shop — it's a community. That community translates into repeat customers, word-of-mouth growth, and brand loyalty that's hard to build from scratch.</p>
+          <ul class="why-list">
+            <li><span class="wl-icon">✦</span><span>Active, engaged community of 2,374+ followers on Instagram</span></li>
+            <li><span class="wl-icon">✦</span><span>Delivery available via Toters — proven off-premise revenue stream</span></li>
+            <li><span class="wl-icon">✦</span><span>Creative, seasonal menu that keeps customers coming back</span></li>
+            <li><span class="wl-icon">✦</span><span>Strong team culture — "You're in Good Hands" is lived, not just printed</span></li>
+            <li><span class="wl-icon">✦</span><span>Managed and franchised through MIGERA's experienced consulting team</span></li>
+            <li><span class="wl-icon">✦</span><span>Ideal for first-time F&B investors with full operational support</span></li>
+          </ul>
+        </div>
+        <div class="why-numbers reveal">
+          <div class="wn-box">
+            <div class="wn-n">2</div>
+            <div class="wn-l">Active Locations</div>
+          </div>
+          <div class="wn-box">
+            <div class="wn-n">LB + GCC</div>
+            <div class="wn-l">Target Markets</div>
+          </div>
+          <div class="wn-box">
+            <div class="wn-n">Full</div>
+            <div class="wn-l">Franchise Support</div>
+          </div>
+          <div class="wn-box">
+            <div class="wn-n">MIGERA</div>
+            <div class="wn-l">Management Backed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP TEASER -->
+  <section class="shop-teaser">
+    <div class="container">
+      <div class="shop-teaser-inner reveal">
+        <div>
+          <h3>Meetup Merch — Coming Soon</h3>
+          <p>T-shirts, accessories, and limited edition drops from the Meetup brand. Stay tuned.</p>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="https://www.instagram.com/meetupcoffeeshop" target="_blank" class="btn-outline-dark">Follow @meetupcoffeeshop</a>
+          <a href="shop.html" class="btn-gold">Join Waitlist</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRANCHISE FORM -->
+  <section class="section bg-cream" id="franchise-form">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Apply Now</div>
+        <h2>Franchise Enquiry</h2>
+        <p>Interested in opening a Meetup Coffee Shop? Tell us about yourself and we'll be in touch within 48 hours.</p>
+      </div>
+      <form class="lead-form centered reveal" id="form-franchise" data-sheet="Franchise">
         <div class="form-row">
           <div class="fg"><label>Full Name *</label><input type="text" name="name" required placeholder="Your name"></div>
           <div class="fg"><label>Email *</label><input type="email" name="email" required placeholder="you@email.com"></div>
         </div>
         <div class="form-row">
-          <div class="fg"><label>Phone *</label><input type="tel" name="phone" required placeholder="+961 / +966"></div>
-          <div class="fg"><label>Country</label><input type="text" name="country" placeholder="Lebanon / KSA / Other"></div>
+          <div class="fg"><label>Phone *</label><input type="tel" name="phone" required placeholder="+961 / +966..."></div>
+          <div class="fg"><label>Country of Operation *</label><input type="text" name="country" required placeholder="Where would you open?"></div>
         </div>
-        <div class="fg"><label>Delivery Address *</label><textarea name="address" rows="2" required placeholder="Street, city, country"></textarea></div>
-        <div class="fg"><label>Order Summary</label><textarea name="order_summary" id="order-summary-field" rows="3" readonly></textarea></div>
-        <div class="fg"><label>Notes</label><input type="text" name="notes" placeholder="Special requests, gift message..."></div>
-        <button type="submit" class="btn-gold full">Place Order</button>
-        <div class="form-success" id="success-checkout">✓ Order placed! We'll confirm details via email within 24 hours.</div>
+        <div class="form-row">
+          <div class="fg"><label>Investment Capacity</label>
+            <select name="investment">
+              <option value="">Select...</option>
+              <option>Under $50K</option>
+              <option>$50K – $100K</option>
+              <option>$100K – $200K</option>
+              <option>$200K+</option>
+            </select>
+          </div>
+          <div class="fg"><label>F&amp;B Experience</label>
+            <select name="franchise_type">
+              <option value="">Select...</option>
+              <option>None — First F&amp;B Investment</option>
+              <option>Some Experience</option>
+              <option>Experienced Operator</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg"><label>Tell Us About Yourself &amp; Your Vision *</label>
+          <textarea name="message" rows="4" required placeholder="Your background, why Meetup, your target location, and anything else we should know..."></textarea>
+        </div>
+        <button type="submit" class="btn-gold full">Submit Franchise Application</button>
+        <div class="form-success" id="success-franchise">✓ Application received! Our team will review and reach out within 48 hours.</div>
       </form>
-    </div>
-  </div>
 
-  <!-- ABOUT MEETUP -->
-  <section class="section meetup-about">
-    <div class="container">
-      <div class="meetup-about-inner reveal">
-        <div>
-          <div class="section-label">The Brand</div>
-          <h2>What is Meetup?</h2>
-          <p>Meetup is MIGERA's community lifestyle brand — born from the energy of gathering, sharing, and celebrating together. Every piece is designed for people who believe in showing up fully.</p>
-          <p>Limited drops. Intentional design. Community first.</p>
-          <a href="https://instagram.com/migeralb" target="_blank" class="btn-outline-dark">Follow @migeralb</a>
-        </div>
-        <div class="meetup-about-tags">
-          <span class="tag">Community</span>
-          <span class="tag gold">Limited Edition</span>
-          <span class="tag">Lebanon</span>
-          <span class="tag">KSA</span>
-          <span class="tag gold">Premium Quality</span>
-          <span class="tag">Unisex</span>
-        </div>
+      <div class="contact-info-strip reveal">
+        <div class="ci-item"><span class="ci-label">MIGERA Lebanon</span><span class="ci-val">(+961) 76 460846</span></div>
+        <div class="ci-sep">|</div>
+        <div class="ci-item"><span class="ci-label">Email</span><span class="ci-val"><a href="mailto:info@migeralb.com">info@migeralb.com</a></span></div>
+        <div class="ci-sep">|</div>
+        <div class="ci-item"><span class="ci-label">Instagram</span><span class="ci-val"><a href="https://www.instagram.com/meetupcoffeeshop" target="_blank">@meetupcoffeeshop</a></span></div>
       </div>
     </div>
   </section>
@@ -143,18 +513,26 @@
           <img src="images/migeralogowhite.png" alt="MIGERA">
           <p>Caring Partners in Business &amp; Growth</p>
           <p class="footer-email"><a href="mailto:info@migeralb.com">info@migeralb.com</a></p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/migeralb" target="_blank" class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              @migeralb
+            </a>
+          </div>
         </div>
         <div class="footer-nav">
           <div class="fn-col"><div class="fn-head">Company</div><a href="index.html#about">About</a><a href="services.html">Consulting</a><a href="realestate.html">Real Estate</a></div>
-          <div class="fn-col"><div class="fn-head">Shop</div><a href="meetup.html">Meetup Store</a><a href="shop.html">MIGERA Shop</a></div>
-          <div class="fn-col"><div class="fn-head">Connect</div><a href="index.html#contact">Contact</a><a href="https://instagram.com/migeralb" target="_blank">Instagram</a></div>
+          <div class="fn-col"><div class="fn-head">Meetup</div><a href="meetup.html">Brand Story</a><a href="#franchise">Franchise</a><a href="https://www.instagram.com/meetupcoffeeshop" target="_blank">Instagram</a></div>
+          <div class="fn-col"><div class="fn-head">Connect</div><a href="index.html#contact">Contact</a><a href="mailto:info@migeralb.com">Email Us</a><a href="shop.html">Shop</a></div>
         </div>
       </div>
-      <div class="footer-bottom"><p>© 2025 MIGERA / Meetup. All Rights Reserved.</p></div>
+      <div class="footer-bottom">
+        <p>© 2025 MIGERA. All Rights Reserved. | <a href="https://migeralb.com">migeralb.com</a></p>
+        <p>Meetup Coffee Shop · Dekwaneh &amp; Kaslik, Lebanon</p>
+      </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script src="meetup.js"></script>
 </body>
 </html>
