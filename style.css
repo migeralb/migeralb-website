@@ -693,8 +693,9 @@ strong { font-weight: 500; color: var(--charcoal); }
 
 @media (max-width: 768px) {
   :root { --nav-h: 60px; }
-  .navbar { padding: 0 1.2rem; }
-  .nav-logo img { height: 28px; width: auto; max-width: 190px; }
+  .navbar { padding: 0 1rem; }
+  .nav-logo { max-width: 48%; }
+  .nav-logo img { height: 24px; width: auto; max-width: 100%; }
   .hamburger { display: flex; }
   .nav-menu {
     position: fixed;
@@ -741,6 +742,7 @@ strong { font-weight: 500; color: var(--charcoal); }
 }
 
 @media (max-width: 420px) {
-  .nav-logo img { height: 26px; max-width: 170px; }
+  .nav-logo { max-width: 46%; }
+  .nav-logo img { height: 20px; max-width: 100%; }
   .hero-cards { display: none; }
 }
