@@ -164,7 +164,6 @@ strong { font-weight: 500; color: var(--charcoal); }
   display: block;
   object-fit: contain;
   flex-shrink: 0;
-  filter: brightness(0);
 }
 
 .nav-menu { display: flex; align-items: center; gap: 2rem; }
