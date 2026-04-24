@@ -7,7 +7,7 @@
 
 // ── IMPORTANT: Replace this URL with your Google Apps Script Web App URL ──
 // See README.md for instructions on how to create it.
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgJplOrojafp26L9XMx5bcuLBQ_fJPzFP1nQjyVCvCoiUyYNerWGP8biAnYRAUhATu/exec';
+const GOOGLE_SCRIPT_URL = https://script.google.com/macros/s/AKfycbyMlFwHBuMainZg6FO8y1b_KSVUfF4lG7EEPzkmCKSusv2LNwTxGCudDZEcvS1Oa05r/exec
 window.GOOGLE_SCRIPT_URL = GOOGLE_SCRIPT_URL;
 
 document.addEventListener('DOMContentLoaded', () => {
