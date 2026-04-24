@@ -13,7 +13,7 @@
 //
 // ============================================================
 
-const SPREADSHEET_ID = '1hrw-kPKmaDCzRXUaLocG4tG0UWAl0FQ8JO0PD_r_x_s';
+const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID_HERE';
 // Found in your Google Sheet URL:
 // https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 
@@ -127,11 +127,8 @@ function notifyTeam(sheetName, data) {
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
       <div style="background:#0a0a0a;padding:24px 32px;text-align:center">
-        <img src="https://migeralb.com/images/migeralogowhite.png"
-             alt="MIGERA"
-             style="height:34px;width:auto;display:block;margin:0 auto 10px"
-             onerror="this.style.display='none'">
-        <h2 style="color:#ffffff;font-size:20px;margin:0;font-weight:300">${subject}</h2>
+        <p style="color:#F2980D;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin:0 0 8px">MIGERA · migeralb.com</p>
+        <h2 style="color:#ffffff;font-size:22px;margin:0;font-weight:300">${subject}</h2>
       </div>
       <div style="background:#ffffff;padding:32px">
         <table style="width:100%;border-collapse:collapse">
@@ -198,11 +195,9 @@ function sendClientReply(sheetName, data) {
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
 
       <!-- Header -->
-      <div style="background:#0a0a0a;padding:28px 32px;text-align:center">
-        <img src="https://migeralb.com/images/migeralogowhite.png" 
-             alt="MIGERA" 
-             style="height:38px;width:auto;display:block;margin:0 auto 4px"
-             onerror="this.style.display='none'">
+      <div style="background:#0a0a0a;padding:32px;text-align:center">
+        <p style="color:#F2980D;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin:0 0 6px">MIGERA · Caring Partners</p>
+        <p style="color:rgba(255,255,255,0.4);font-size:11px;margin:0;letter-spacing:1px">migeralb.com</p>
       </div>
 
       <!-- Body -->
@@ -236,15 +231,12 @@ function sendClientReply(sheetName, data) {
       </div>
 
       <!-- Footer -->
-      <div style="background:#0a0a0a;padding:28px 24px;text-align:center">
-        <img src="https://migeralb.com/images/migeralogowhite.png"
-             alt="MIGERA"
-             style="height:32px;width:auto;display:block;margin:0 auto 12px"
-             onerror="this.style.display='none'">
-        <p style="color:rgba(255,255,255,0.25);font-size:11px;margin:0">
-          <a href="https://migeralb.com" style="color:rgba(255,255,255,0.35);text-decoration:none">migeralb.com</a>
+      <div style="background:#0a0a0a;padding:24px;text-align:center">
+        <p style="color:rgba(255,255,255,0.3);font-size:11px;margin:0 0 4px">MIGERA · Caring Partners</p>
+        <p style="color:rgba(255,255,255,0.2);font-size:11px;margin:0">
+          <a href="https://migeralb.com" style="color:rgba(255,255,255,0.3);text-decoration:none">migeralb.com</a>
           &nbsp;·&nbsp;
-          <a href="mailto:info@migeralb.com" style="color:rgba(255,255,255,0.35);text-decoration:none">info@migeralb.com</a>
+          <a href="mailto:info@migeralb.com" style="color:rgba(255,255,255,0.3);text-decoration:none">info@migeralb.com</a>
         </p>
       </div>
 
